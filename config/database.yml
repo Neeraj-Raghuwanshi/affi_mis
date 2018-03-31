@@ -1,0 +1,21 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: root
+  password: root
+  host: localhost
+
+development:
+  <<: *default
+  database: affi_mis_development
+
+test:
+  <<: *default
+  database: affi_mis_test
+
+production:
+  <<: *default
+  database: affi_mis_production
+  username: maktab
+  password: <%= ENV['MAKTAB_DATABASE_PASSWORD'] %>
